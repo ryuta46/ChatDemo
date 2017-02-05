@@ -2,3 +2,6 @@ xcuserdata
 GoogleService-Info.plist
 Podfile.lock
 Pods
+config.json
+serviceAccountCredentials.json
+node_modules

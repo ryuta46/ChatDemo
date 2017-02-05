@@ -8,7 +8,9 @@
 import UIKit
 import FirebaseDatabase
 
-class TalkViewController: UIViewController {
+import FirebaseMessaging
+
+class TalkViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var talkText: UITextView!
@@ -32,6 +34,12 @@ class TalkViewController: UIViewController {
             }
             print("Data format is invalid.")
         })
+
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/test")
+
+        nameText.delegate = self
+        messageText.delegate = self
+
     }
 
 
@@ -50,6 +58,11 @@ class TalkViewController: UIViewController {
         talkText.resignFirstResponder()
         messageText.text = ""
     }
-    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     
 }

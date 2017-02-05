@@ -45,6 +45,7 @@
 		5AA64B6C1A464DC55DBD60E4 /* Pods-ChatDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDemoUITests/Pods-ChatDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5F73BC191E3A2EC800E9C17D /* TalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
 		5F73BC1B1E3E27B100E9C17D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5F73BC1D1E3F803900E9C17D /* ChatDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatDemo.entitlements; sourceTree = "<group>"; };
 		5F946F141E345C020029A1FD /* ChatDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F946F171E345C020029A1FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F946F191E345C020029A1FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		5F946F161E345C020029A1FD /* ChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5F73BC1D1E3F803900E9C17D /* ChatDemo.entitlements */,
 				5F73BC181E3A2EA700E9C17D /* views */,
 				5F946F171E345C020029A1FD /* AppDelegate.swift */,
 				5F946F1E1E345C030029A1FD /* Assets.xcassets */,
@@ -260,6 +262,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = CK945B6495;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					5F946F271E345C030029A1FD = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -605,6 +612,7 @@
 			baseConfigurationReference = 240D93359674E0DF695A3311 /* Pods-ChatDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChatDemo/ChatDemo.entitlements;
 				DEVELOPMENT_TEAM = CK945B6495;
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -620,6 +628,7 @@
 			baseConfigurationReference = 13093B8B828D1700E36D65DC /* Pods-ChatDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChatDemo/ChatDemo.entitlements;
 				DEVELOPMENT_TEAM = CK945B6495;
 				INFOPLIST_FILE = ChatDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

@@ -1,8 +1,8 @@
-let https = require('https');
-let firebase = require('firebase');
-let fs = require('fs')
+var https = require('https');
+var firebase = require('firebase');
+var fs = require('fs')
 
-let config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 
 firebase.initializeApp({
@@ -10,12 +10,12 @@ firebase.initializeApp({
   databaseURL: config.databaseUrl
 })
 
-let db = firebase.database();
-let ref = db.ref()
+var db = firebase.database();
+var ref = db.ref()
 
 ref.once("value", function(snapshot) {
   const numChildren = snapshot.numChildren();
-  let counter = 0;
+  var counter = 0;
   ref.on("child_added", function(addedSnapshot) {
       if( counter < numChildren ){
           // skip data before the server launched.
@@ -29,7 +29,7 @@ ref.once("value", function(snapshot) {
 
 
 function sendNotification(){
-  let postData = JSON.stringify({
+  var postData = JSON.stringify({
       "to": "/topics/test",
       "priority" : "high",
       "content_available": true,
@@ -39,22 +39,22 @@ function sendNotification(){
       }
   });
 
-  let options = {
+  var options = {
       hostname: 'fcm.googleapis.com',
       path: '/fcm/send',
       method: 'POST',
       headers: {
           "Content-Type": "application/json",
-          "Authorization" : `key=${config.apiKey}`
+          "Authorization" : "key=" + config.apiKey
       }
   };
 
-  let req = https.request(options, (res) => {
+  var req = https.request(options, (res) => {
       console.log("OK");
   });
 
   req.on('error', (e) => {
-      console.error(`problem with request: ${e.message}`);
+      console.error("problem with request: " + e.message);
   });
 
   req.write(postData);

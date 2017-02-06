@@ -1,0 +1,16 @@
+{
+  "name": "chat_demo",
+  "version": "1.0.0",
+  "description": "firebase chat demo server",
+  "main": "chatDemoServer.js",
+  "dependencies": {
+    "firebase": "^3.6.8",
+    "firebase-admin": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

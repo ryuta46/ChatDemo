@@ -17,13 +17,13 @@ class TalkViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var messageText: UITextField!
     @IBOutlet weak var sendButton: UIButton!
 
-    var database: FIRDatabaseReference!
+    var database: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        database = FIRDatabase.database().reference()
+        database = Database.database().reference()
 
         database.observe(.childAdded, with: { [weak self] snapshot in 
             if let chunk = snapshot.value as? Dictionary<String, AnyObject> {
@@ -35,7 +35,7 @@ class TalkViewController: UIViewController, UITextFieldDelegate {
             print("Data format is invalid.")
         })
 
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/test")
+        Messaging.messaging().subscribe(toTopic: "/topics/test")
 
         nameText.delegate = self
         messageText.delegate = self

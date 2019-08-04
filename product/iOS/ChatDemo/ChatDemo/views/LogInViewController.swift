@@ -17,20 +17,20 @@ class LogInViewController: UIViewController {
 
     @IBAction func onTouchedSignUpButton(_ sender: Any) {
         if let email = mailAddressText.text, let password = passwordText.text {
-            FIRAuth.auth()?.createUser(withEmail: email, password: password) { [weak self] (user, error) in
-                self?.validateAuthenticationResult(user, error: error)
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
+                self?.validateAuthenticationResult(authResult, error: error)
             }
         }
     }
     @IBAction func onTouchedLogInButton(_ sender: Any) {
         if let email = mailAddressText.text, let password = passwordText.text {
-            FIRAuth.auth()?.signIn(withEmail: email, password: password) { [weak self] (user, error) in
-                self?.validateAuthenticationResult(user, error: error)
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
+                _ = self?.validateAuthenticationResult(authResult, error: error)
             }
         }
     }
 
-    private func validateAuthenticationResult(_ user: FIRUser?, error: Error?) {
+    private func validateAuthenticationResult(_ authResult: AuthDataResult?, error: Error?) {
         if let error = error{
             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
